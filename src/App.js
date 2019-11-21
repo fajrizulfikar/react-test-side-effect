@@ -1,10 +1,19 @@
-// import React from "react"
+import React, { useState, useEffect } from "react"
 import PropTypes from "prop-types"
-import "./App.css"
 
 function App(props) {
+  const [isPastDelay, setIsPastDelay] = useState(false)
+
+  useEffect(function delayTimer() {
+    setTimeout(() => setIsPastDelay(true), 100)
+  })
+
   if (props.isLoading) {
-    return null
+    if (!isPastDelay) {
+      return null
+    }
+
+    return <div>Loading...</div>
   }
   return props.children
 }
