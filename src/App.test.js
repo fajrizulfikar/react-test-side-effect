@@ -1,9 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+import React from "react"
+import { render } from "@testing-library/react"
+import App from "./App"
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
-  ReactDOM.unmountComponentAtNode(div);
-});
+describe("App", () => {
+  describe("when isLoading is false", () => {
+    it("should render children", () => {
+      const { getByText } = render(
+        <App isLoading={false}>
+          <div>Hello World</div>
+        </App>
+      )
+      expect(getByText("Hello World")).toBeDefined()
+    })
+  })
+})
