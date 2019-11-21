@@ -5,7 +5,7 @@ function App(props) {
   const [isPastDelay, setIsPastDelay] = useState(false)
 
   useEffect(function delayTimer() {
-    setTimeout(() => setIsPastDelay(true), 100)
+    setTimeout(() => setIsPastDelay(true), 200)
   })
 
   if (props.isLoading) {
