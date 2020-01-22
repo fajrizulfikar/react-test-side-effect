@@ -2,21 +2,25 @@ import React, { useState, useEffect } from "react"
 import PropTypes from "prop-types"
 import LoadingAnimation from "./component/LoadingAnimation"
 
-function App(props) {
+export interface Props {
+  isLoading: boolean,
+  children: JSX.Element
+}
+function App({ isLoading, children } : Props) {
   const [isPastDelay, setIsPastDelay] = useState(false)
 
   useEffect(function delayTimer() {
     setTimeout(() => setIsPastDelay(true), 200)
   })
 
-  if (props.isLoading) {
+  if (isLoading) {
     if (!isPastDelay) {
       return null
     }
 
     return <LoadingAnimation />
   }
-  return props.children
+  return children
 }
 
 App.propTypes = {
