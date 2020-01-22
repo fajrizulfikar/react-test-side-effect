@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
 import PropTypes from "prop-types"
+import LoadingAnimation from "./component/LoadingAnimation"
 
 function App(props) {
   const [isPastDelay, setIsPastDelay] = useState(false)
@@ -13,7 +14,7 @@ function App(props) {
       return null
     }
 
-    return <div>Loading...</div>
+    return <LoadingAnimation />
   }
   return props.children
 }
