@@ -6,6 +6,7 @@ export interface Props {
   isLoading: boolean,
   children: JSX.Element
 }
+
 function App({ isLoading, children } : Props) {
   const [isPastDelay, setIsPastDelay] = useState(false)
 
