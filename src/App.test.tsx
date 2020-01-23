@@ -35,9 +35,9 @@ describe("App", () => {
           </App>
         )
         // assert the setTimeout was called exactly two times (because of useEffect behavior)
-        expect(setTimeout.mock.calls.length).toEqual(2)
+        expect(setTimeout).toHaveBeenCalledTimes(2)
         // assert that the 2nd argument to the call to setTimeout is 200
-        expect(setTimeout.mock.calls[1][1]).toEqual(200)
+        expect(setTimeout).toHaveBeenLastCalledWith(expect.any(Function), 200)
         jest.runAllTimers()
         expect(getByText("Loading...")).toBeDefined()
       })
