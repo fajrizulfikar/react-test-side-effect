@@ -12,7 +12,7 @@ function App({ isLoading, children } : Props) {
 
   useEffect(function delayTimer() {
     setTimeout(() => setIsPastDelay(true), 200)
-  })
+  }, [])
 
   if (isLoading) {
     if (!isPastDelay) {
